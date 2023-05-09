@@ -4,7 +4,7 @@ import React from 'react'
 const App = () => {
   return (
     <View>
-      <Text>App</Text>
+      <Text>This is my main branch</Text>
     </View>
   )
 }
