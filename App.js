@@ -1,11 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import AppNavigator from './navigation/AppNavigator'
 
 const App = () => {
   return (
-    <View>
-      <Text>This is my main branch</Text>
-    </View>
+    <AppNavigator/>
   )
 }
 
