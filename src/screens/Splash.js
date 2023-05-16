@@ -1,10 +1,24 @@
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {THEME_COLOR2, WHITE} from '../utils/Colors';
 import {APP_NAME} from '../utils/Strings';
 import CustomStatusBar from '../components/CustomStatusBar';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Splash = () => {
+const Splash = ({navigation}) => {
+
+  useEffect(() => {
+    setTimeout(() => {
+      CheckUserFlow();
+      
+    }, 2000);
+  }, []);
+
+  const CheckUserFlow = async () =>{
+    checkUser = await AsyncStorage.getItem('hasUserVisited');
+    if(checkUser)navigation.navigate('SignUp');
+    else navigation.navigate('Welcome');
+  }
   return (
     <View style={styles.container}>
       <CustomStatusBar bgColor={THEME_COLOR2} content={'light-content'} />
